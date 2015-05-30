@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dip"
+    android:background="@drawable/title_color" >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true" 
+        android:layout_centerVertical="true"
+        android:id="@+id/title_menu_button"
+        android:layout_marginLeft="10dp"
+        android:text="menu" />
+
+    <TextView
+        android:id="@+id/title_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="智能宿舍"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/title_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="20:39"
+        android:textSize="25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

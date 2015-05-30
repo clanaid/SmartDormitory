@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <include
+        android:id="@+id/title"
+        android:layout_alignParentTop="true"
+        layout="@layout/title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 温度湿度 -->
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/temp_humidity_progress" />
+
+            <!-- 灯光-插座 -->
+            <LinearLayout
+                android:layout_width="440dip"
+                android:layout_height="220dip"
+                android:layout_marginTop="10dp"
+                android:background="#66cc66" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/AudioFileInfoOverlayText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#66cc66"
+                        android:text="灯光"
+                        android:textColor="#FFFFCC"
+                        android:textSize="50dp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/AudioFileInfoOverlayText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#66cc66"
+                        android:text="插座"
+                        android:textColor="#FFFFCC"
+                        android:textSize="50dp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+                    
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- pm2.5-门禁-雨滴 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape" >
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
