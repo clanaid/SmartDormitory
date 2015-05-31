@@ -3,16 +3,26 @@ package com.bailv.smartdormitory;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
 import android.view.animation.Interpolator;
 import android.widget.Toast;
 
+import com.bailv.smartdormitory.SerialFragment.SerialSendLinstener;
 import com.bailv.smartdormitory.SlidingMenuFragment.ChangeFragment;
 import com.bailv.smartdormitory.SmartDormitoryFragment.ShowMenuListener;
 import com.bailv.util.RealTime;
+import com.bailv.util.SerialThread;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.CanvasTransformer;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * APP的主Activity
@@ -22,19 +32,38 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.CanvasTransformer;
  */
 
 public class MainActivity extends Activity implements ChangeFragment,
-		ShowMenuListener {
+		ShowMenuListener, SerialSendLinstener {
 
 	private CanvasTransformer mTransformer;
 
-	private Fragment fragment;
+	private SmartDormitoryFragment fragment;
 	private HomeFragment homeFragment;
 	private AirFragment airFragment;
 	private PlatooninsertFragment platooninsertFragment;
-	private Fragment tempFragment;
+	private SafeFragment safeFragment;
+	private ModeFragment modeFragment;
+	private SmartDormitoryFragment tempFragment;
 
 	private SlidingMenu menu;
 
-	private int fd;
+	private Intent serialIntent;
+	private SerialService serialService;
+
+	private ServiceConnection serviceConnection = new ServiceConnection() {
+
+		@Override
+		public void onServiceDisconnected(ComponentName name) {
+			// TODO 自动生成的方法存根
+
+		}
+
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder binder) {
+			// TODO 自动生成的方法存根
+			serialService = ((SerialService.LocalBinder) binder).getService();
+			Log.d("Service", "SerivceOK");
+		}
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,14 +73,39 @@ public class MainActivity extends Activity implements ChangeFragment,
 		// 资源辅助初始化
 		initResources();
 
+		// 服务初始化
+		initService();
+
 		// Fragment初始化
 		initFragment();
+
+		// 添加串口观察者
+		// addObserver();
 
 		// slidingmenu动画初始化
 		initAnimation();
 
 		// 初始化slidingmenu
 		initSlidingMenu();
+
+	}
+
+	private void addObserver() {
+		// TODO 自动生成的方法存根
+
+	}
+
+	private void initService() {
+		// TODO 自动生成的方法存根
+		serialIntent = new Intent(MainActivity.this, SerialService.class);
+		bindService(serialIntent, serviceConnection, BIND_AUTO_CREATE);
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO 自动生成的方法存根
+		unbindService(serviceConnection);
+		super.onDestroy();
 	}
 
 	private void initResources() {
@@ -160,13 +214,6 @@ public class MainActivity extends Activity implements ChangeFragment,
 		default:
 			break;
 		}
-		// 防止两次点击造成黑屏
-		/*
-		 * if (tempFragment != fragment) {
-		 * getFragmentManager().beginTransaction()
-		 * .replace(R.id.ContenView_fragment, fragment).commit(); tempFragment =
-		 * fragment; }
-		 */
 		if (tempFragment != fragment) {
 			FragmentTransaction transaction = getFragmentManager()
 					.beginTransaction().setCustomAnimations(
@@ -188,6 +235,13 @@ public class MainActivity extends Activity implements ChangeFragment,
 		// TODO 自动生成的方法存根
 
 		menu.showMenu();
+	}
+
+	@Override
+	public void Send(String cmd) {
+		// TODO 自动生成的方法存根
+		if (serialService != null)
+			serialService.SerialSend(cmd);
 	}
 
 }

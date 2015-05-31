@@ -1,9 +1,8 @@
 package com.bailv.smartdormitory;
 
-import java.util.Observable;
-import java.util.Observer;
 
 import com.bailv.util.CheckSwitchButton;
+import com.bailv.util.SerialCmd;
 import com.bailv.util.SerialThread;
 
 import android.R.integer;
@@ -256,10 +255,12 @@ public class PlatooninsertFragment extends SerialFragment{
 	}
 
 	@Override
-	public void update(Observable observable, Object data) {
+	public void onEventMainThread(SerialCmd cmd) {
 		// TODO 自动生成的方法存根
-		String msg;
-		msg = (String)data;
-		Toast.makeText(getActivity(), "串口测试", Toast.LENGTH_SHORT).show();
+		String cmdString = cmd.getCmd();
+		Toast.makeText(getActivity(), "Platoo:"+cmdString, Toast.LENGTH_SHORT).show();
 	}
+
+	
+
 }

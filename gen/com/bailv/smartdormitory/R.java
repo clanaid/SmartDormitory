@@ -9,8 +9,10 @@ package com.bailv.smartdormitory;
 
 public final class R {
     public static final class animator {
-        public static final int slide_in_left=0x7f040000;
-        public static final int slide_out_right=0x7f040001;
+        public static final int fade_in=0x7f040000;
+        public static final int fade_out=0x7f040001;
+        public static final int slide_in_left=0x7f040002;
+        public static final int slide_out_right=0x7f040003;
     }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -266,8 +268,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int air_temp_down=0x7f050010;
         public static final int air_temp_up=0x7f050011;
         public static final int fullscreen=0x7f050003;
-        public static final int humidity_progress=0x7f05002d;
-        public static final int humidity_value=0x7f05002e;
+        public static final int humidity_progress=0x7f05002f;
+        public static final int humidity_value=0x7f050030;
         public static final int item_background=0x7f050015;
         public static final int item_icon=0x7f050016;
         public static final int item_text=0x7f050017;
@@ -276,31 +278,33 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int light_value=0x7f050019;
         public static final int margin=0x7f050002;
         public static final int none=0x7f050004;
-        public static final int platooninsert_onle_image_1=0x7f050020;
-        public static final int platooninsert_onle_image_2=0x7f050022;
-        public static final int platooninsert_onle_image_3=0x7f050024;
-        public static final int platooninsert_only_1=0x7f05001f;
-        public static final int platooninsert_only_2=0x7f050021;
-        public static final int platooninsert_only_3=0x7f050023;
-        public static final int platooninsert_two_1=0x7f050026;
-        public static final int platooninsert_two_2=0x7f050028;
-        public static final int platooninsert_two_3=0x7f05002a;
-        public static final int platooninsert_two_image_1=0x7f050025;
-        public static final int platooninsert_two_image_2=0x7f050027;
-        public static final int platooninsert_two_image_3=0x7f050029;
+        public static final int platooninsert_onle_image_1=0x7f050022;
+        public static final int platooninsert_onle_image_2=0x7f050024;
+        public static final int platooninsert_onle_image_3=0x7f050026;
+        public static final int platooninsert_only_1=0x7f050021;
+        public static final int platooninsert_only_2=0x7f050023;
+        public static final int platooninsert_only_3=0x7f050025;
+        public static final int platooninsert_two_1=0x7f050028;
+        public static final int platooninsert_two_2=0x7f05002a;
+        public static final int platooninsert_two_3=0x7f05002c;
+        public static final int platooninsert_two_image_1=0x7f050027;
+        public static final int platooninsert_two_image_2=0x7f050029;
+        public static final int platooninsert_two_image_3=0x7f05002b;
         public static final int pm_type=0x7f05001a;
         public static final int pm_value=0x7f05001b;
+        public static final int rain_img=0x7f05001c;
+        public static final int rain_value=0x7f05001d;
         public static final int right=0x7f050001;
         public static final int selected_view=0x7f050005;
-        public static final int slidingmen_gridview=0x7f05001c;
-        public static final int slidingmenu_fragment=0x7f05001d;
-        public static final int slidingmenumain=0x7f05001e;
-        public static final int temp_progress=0x7f05002b;
-        public static final int temp_value=0x7f05002c;
+        public static final int slidingmen_gridview=0x7f05001e;
+        public static final int slidingmenu_fragment=0x7f05001f;
+        public static final int slidingmenumain=0x7f050020;
+        public static final int temp_progress=0x7f05002d;
+        public static final int temp_value=0x7f05002e;
         public static final int title=0x7f050006;
-        public static final int title_menu_button=0x7f05002f;
-        public static final int title_name=0x7f050030;
-        public static final int title_time=0x7f050031;
+        public static final int title_menu_button=0x7f050031;
+        public static final int title_name=0x7f050032;
+        public static final int title_time=0x7f050033;
     }
     public static final class integer {
         public static final int num_cols=0x7f070000;
