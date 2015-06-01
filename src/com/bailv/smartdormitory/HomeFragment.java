@@ -4,6 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import com.bailv.util.SerialCmd;
+import com.bailv.util.ToastShow;
 
 import android.animation.ObjectAnimator;
 import android.app.Fragment;
@@ -87,7 +88,7 @@ public class HomeFragment extends SerialFragment {
 	public void onEventMainThread(SerialCmd cmd) {
 		// TODO 自动生成的方法存根
 		String cmdString = cmd.getCmd();
-		Toast.makeText(getActivity(), "Home:"+cmdString, Toast.LENGTH_SHORT).show();
+		ToastShow.OpenDor(getActivity(), R.drawable.ic_launcher, "梁泓钦开门", true).show();
 	}
 
 	

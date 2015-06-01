@@ -227,6 +227,7 @@ public class MainActivity extends Activity implements ChangeFragment,
 			}
 			tempFragment = fragment;
 		}
+		menu.showContent();
 
 	}
 

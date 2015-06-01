@@ -13,6 +13,8 @@ public final class R {
         public static final int fade_out=0x7f040001;
         public static final int slide_in_left=0x7f040002;
         public static final int slide_out_right=0x7f040003;
+        public static final int toast_in=0x7f040004;
+        public static final int toast_out=0x7f040005;
     }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -250,7 +252,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int switch_unbackground=0x7f02002a;
         public static final int title=0x7f02002b;
         public static final int title_color=0x7f02002c;
-        public static final int z=0x7f02002d;
+        public static final int toast_opendor_background=0x7f02002d;
+        public static final int z=0x7f02002e;
     }
     public static final class id {
         public static final int ContenView_fragment=0x7f050014;
@@ -294,6 +297,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int pm_value=0x7f05001b;
         public static final int rain_img=0x7f05001c;
         public static final int rain_value=0x7f05001d;
+        public static final int rfid_user_img=0x7f050034;
+        public static final int rfid_user_name=0x7f050035;
         public static final int right=0x7f050001;
         public static final int selected_view=0x7f050005;
         public static final int slidingmen_gridview=0x7f05001e;
@@ -322,7 +327,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int switch_six=0x7f030009;
         public static final int temp_humidity_progress=0x7f03000a;
         public static final int title=0x7f03000b;
-        public static final int window=0x7f03000c;
+        public static final int toast_open_dor=0x7f03000c;
+        public static final int window=0x7f03000d;
     }
     public static final class string {
         public static final int app_name=0x7f080000;
@@ -357,6 +363,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int AppTheme=0x7f090001;
         public static final int AudioFileInfoOverlayText=0x7f090002;
         public static final int custom_checkbox=0x7f090003;
+        public static final int toast_view=0x7f090004;
     }
     public static final class styleable {
         /** Attributes that can be used with a CircleButton.

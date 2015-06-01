@@ -2,6 +2,8 @@ int animator fade_in 0x7f040000
 int animator fade_out 0x7f040001
 int animator slide_in_left 0x7f040002
 int animator slide_out_right 0x7f040003
+int animator toast_in 0x7f040004
+int animator toast_out 0x7f040005
 int attr behindOffset 0x7f010003
 int attr behindScrollScale 0x7f010005
 int attr behindWidth 0x7f010004
@@ -73,7 +75,8 @@ int drawable switch_background_shadow 0x7f020029
 int drawable switch_unbackground 0x7f02002a
 int drawable title 0x7f02002b
 int drawable title_color 0x7f02002c
-int drawable z 0x7f02002d
+int drawable toast_opendor_background 0x7f02002d
+int drawable z 0x7f02002e
 int id ContenView_fragment 0x7f050014
 int id air 0x7f050008
 int id air_block 0x7f050007
@@ -115,6 +118,8 @@ int id pm_type 0x7f05001a
 int id pm_value 0x7f05001b
 int id rain_img 0x7f05001c
 int id rain_value 0x7f05001d
+int id rfid_user_img 0x7f050034
+int id rfid_user_name 0x7f050035
 int id right 0x7f050001
 int id selected_view 0x7f050005
 int id slidingmen_gridview 0x7f05001e
@@ -139,12 +144,14 @@ int layout slidingmenumain 0x7f030008
 int layout switch_six 0x7f030009
 int layout temp_humidity_progress 0x7f03000a
 int layout title 0x7f03000b
-int layout window 0x7f03000c
+int layout toast_open_dor 0x7f03000c
+int layout window 0x7f03000d
 int string app_name 0x7f080000
 int style AppBaseTheme 0x7f090000
 int style AppTheme 0x7f090001
 int style AudioFileInfoOverlayText 0x7f090002
 int style custom_checkbox 0x7f090003
+int style toast_view 0x7f090004
 int[] styleable CircleButton { 0x7f010013, 0x7f010014 }
 int styleable CircleButton_cb_color 0
 int styleable CircleButton_cb_pressedRingWidth 1

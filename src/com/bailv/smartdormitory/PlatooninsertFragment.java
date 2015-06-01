@@ -199,6 +199,7 @@ public class PlatooninsertFragment extends SerialFragment{
 						if (isChecked) {
 							ToastMakeText("打开");
 							changeImage(two_image_3, true, 1);
+							PlatooninsertFragment.this.SendCmd("{0000000001}");
 						} else {
 							ToastMakeText("关闭");
 							changeImage(two_image_3, false, 1);
@@ -258,7 +259,6 @@ public class PlatooninsertFragment extends SerialFragment{
 	public void onEventMainThread(SerialCmd cmd) {
 		// TODO 自动生成的方法存根
 		String cmdString = cmd.getCmd();
-		Toast.makeText(getActivity(), "Platoo:"+cmdString, Toast.LENGTH_SHORT).show();
 	}
 
 	

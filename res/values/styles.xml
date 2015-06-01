@@ -32,5 +32,9 @@
         <item name="android:button">@drawable/my_checkbox</item> 
     </style>
 
+    <style name="toast_view">
+        <item name="@android:windowEnterAnimation">@animator/toast_in</item>
+        <item name="@android:windowExitAnimation">@animator/toast_out</item>
+    </style>
 
 </resources>

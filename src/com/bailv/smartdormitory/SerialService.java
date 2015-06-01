@@ -50,6 +50,7 @@ public class SerialService extends Service implements Observer{
 		serialThread.addObserver(this);
 		Log.d("Service", "opening...");
 		thread.start();
+		SerialSend("{000000000}");
 		super.onCreate();
 	}
 
@@ -84,8 +85,7 @@ public class SerialService extends Service implements Observer{
 	public void update(Observable observable, Object data) {
 		// TODO 自动生成的方法存根
 		String serialCmd = null;
-		SerialThread sThread = (SerialThread)observable;
-		serialCmd = sThread.getCmd();
+		serialCmd = (String)data;
 		Log.d("SerialGet",serialCmd);
 		HandlerCmd(serialCmd);
 	}
