@@ -26,7 +26,7 @@ import android.util.Log;
 
 public class SerialThread extends Observable implements Runnable {
 
-	private int fd;
+	private int fd = 0;
 	private String cmd;
 
 	private boolean isStop = false;

@@ -5,14 +5,14 @@
     android:background="@drawable/background" >
 
     <include
-        android:id="@+id/title"
+        android:id="@+id/hometitle"
         android:layout_alignParentTop="true"
         layout="@layout/title" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
+        android:layout_below="@id/hometitle"
         android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"

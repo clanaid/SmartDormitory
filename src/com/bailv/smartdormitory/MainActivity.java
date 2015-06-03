@@ -118,7 +118,8 @@ public class MainActivity extends Activity implements ChangeFragment,
 		homeFragment = new HomeFragment();
 		airFragment = new AirFragment();
 		platooninsertFragment = new PlatooninsertFragment();
-
+		safeFragment = new SafeFragment();
+		modeFragment = new ModeFragment();
 		tempFragment = fragment = homeFragment;
 	}
 
@@ -206,10 +207,10 @@ public class MainActivity extends Activity implements ChangeFragment,
 			fragment = airFragment;
 			break;
 		case 3:
-			fragment = homeFragment;
+			fragment = safeFragment;
 			break;
 		case 4:
-			fragment = homeFragment;
+			fragment = modeFragment;
 			break;
 		default:
 			break;
@@ -234,7 +235,6 @@ public class MainActivity extends Activity implements ChangeFragment,
 	@Override
 	public void show() {
 		// TODO 自动生成的方法存根
-
 		menu.showMenu();
 	}
 
