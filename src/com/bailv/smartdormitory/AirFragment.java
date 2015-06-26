@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract.Contacts.Data;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,9 +22,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bailv.util.CircleButton;
+import com.bailv.util.EventsPost;
 import com.bailv.util.RealTime;
 import com.bailv.util.controlSocket;
+import com.bailv.util.EventsPost.EventType;
 import com.bailv.util.controlSocket.ControlType;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * 
@@ -36,7 +41,7 @@ public class AirFragment extends SmartDormitoryFragment {
 
 	private boolean is_learn;
 
-	private int powerNum;
+	private boolean isPower = false;
 
 	private View view;
 
@@ -52,7 +57,7 @@ public class AirFragment extends SmartDormitoryFragment {
 	private Button heating;// 制热
 	private Button ventilation;// 通风
 	private Button strong;// 强风
-	
+
 	private Button titleMenu;
 
 	private CheckBox control;
@@ -80,7 +85,6 @@ public class AirFragment extends SmartDormitoryFragment {
 		}
 	};
 
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -94,52 +98,69 @@ public class AirFragment extends SmartDormitoryFragment {
 
 	private void power_learn() {
 
-		switch (powerNum) {
-		case 0:
+		if (isPower) {
 			new Thread(new controlSocket(ControlType.LEARN_OPEN, null)).start();
 			air.setImageResource(R.drawable.air_open);
 			power_color();
-			break;
-		case -1:
+		} else {
 			new Thread(new controlSocket(ControlType.LEARN_CLOSE, null))
 					.start();
 			air.setImageResource(R.drawable.air_close);
 			power_color();
-			break;
-		default:
-			break;
 		}
+		/*
+		 * switch (powerNum) { case true: new Thread(new
+		 * controlSocket(ControlType.LEARN_OPEN, null)).start();
+		 * air.setImageResource(R.drawable.air_open); power_color(); break; case
+		 * false: new Thread(new controlSocket(ControlType.LEARN_CLOSE, null))
+		 * .start(); air.setImageResource(R.drawable.air_close); power_color();
+		 * break; default: break; }
+		 */
 	}
 
 	private void power_color() {
-		switch (powerNum) {
-		case 0:
+		if (isPower) {
 			power.setColor(Color.GREEN);
-			break;
-		case -1:
+		} else {
 			power.setColor(Color.RED);
-			break;
-		default:
-			break;
 		}
+		/*
+		 * switch (powerNum) { case 0: power.setColor(Color.GREEN); break; case
+		 * -1: power.setColor(Color.RED); break; default: break; }
+		 */
 	}
 
 	private void power_button() {
-		switch (powerNum) {
-		case 0:
+		if (isPower) {
 			new Thread(new controlSocket(ControlType.OPEN, null)).start();
 			air.setImageResource(R.drawable.air_open);
 			power_color();
-			break;
-		case -1:
+			SendState('A', true);
+		} else {
 			power_color();
 			new Thread(new controlSocket(ControlType.CLOSE, null)).start();
 			air.setImageResource(R.drawable.air_close);
-			break;
-
-		default:
-			break;
+			SendState('A', false);
 		}
+		/*
+		 * switch (powerNum) { case 0: new Thread(new
+		 * controlSocket(ControlType.OPEN, null)).start();
+		 * air.setImageResource(R.drawable.air_open); power_color();
+		 * SendState('A', true); break; case -1: power_color(); new Thread(new
+		 * controlSocket(ControlType.CLOSE, null)).start();
+		 * air.setImageResource(R.drawable.air_close); SendState('A', false);
+		 * break;
+		 * 
+		 * default: break; }
+		 */
+	}
+
+	private void SendState(char which, Boolean action) {
+
+		EventsPost eventsPost = new EventsPost(which, action,
+				EventType.HOMESTATE);
+		EventBus.getDefault().post(eventsPost);
+
 	}
 
 	private void initListener() {
@@ -148,9 +169,7 @@ public class AirFragment extends SmartDormitoryFragment {
 
 			@Override
 			public void onClick(View v) {
-				powerNum = ~powerNum;
-				Toast.makeText(getActivity(), "click" + powerNum,
-						Toast.LENGTH_SHORT).show();
+				isPower = !isPower;
 				if (is_learn) {
 					power_learn();
 				} else {
@@ -323,14 +342,13 @@ public class AirFragment extends SmartDormitoryFragment {
 		strong = (Button) view.findViewById(R.id.air_mode_strong);
 
 		power = (CircleButton) view.findViewById(R.id.air_power);
-		powerNum = -1;
 
 		title = (TextView) view.findViewById(R.id.title_name);
 		this.setTitlename(title, "空调控制");
-		
+
 		titleTime = (TextView) view.findViewById(R.id.title_time);
 		this.setTitleTime(titleTime);
-		
+
 		titleMenu = (Button) view.findViewById(R.id.title_menu_button);
 		this.setTitleMenuButton(titleMenu);
 
@@ -340,6 +358,42 @@ public class AirFragment extends SmartDormitoryFragment {
 		air = (ImageView) view.findViewById(R.id.air);
 
 		is_learn = false;
+	}
+
+	@Override
+	public void onEventMainThread(EventsPost eventcmd) {
+		// TODO 自动生成的方法存根
+		String cmdString = eventcmd.getCmd();
+		EventType type = eventcmd.getEventType();
+		switch (type) {
+		case DDPUSH:
+			dealPush(cmdString);
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	private void dealPush(String cmdString) {
+		// TODO 自动生成的方法存根
+		char state = cmdString.charAt(0);
+		boolean action = (cmdString.charAt(1) == 'O') ? true : false;
+		switch (state) {
+		case 'A':
+			dealAir(action);
+			break;
+		default:
+			break;
+		}
+	}
+
+	private void dealAir(boolean action) {
+		// TODO 自动生成的方法存根
+		if (!is_learn) {
+			isPower = action;
+			power_button();
+		}
 	}
 
 }

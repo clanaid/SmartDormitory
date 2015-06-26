@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mode_text_unselect">#696969</color>
+    <color name="mode_text_select">#FFFFFF</color>
+    <color name="platooninser_switch_tag_unset">#A9A9A9</color>
+    <color name="platooninser_switch_tag_set">#000000</color>
+</resources>

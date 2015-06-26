@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
-                        android:text="特强"
+                        android:text="无"
                         android:textColor="#FFFFFF"
                         android:textSize="50dp" />
 
@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
-                        android:text="56lx"
+                        android:text="0lx"
                         android:textColor="#FFFFFF"
                         android:textSize="35dp" />
                 </LinearLayout>
@@ -97,6 +97,30 @@
                         android:text="烟雾"
                         android:textColor="#FFFFFF"
                         android:textSize="25dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="40dp"
+                        android:gravity="center_horizontal" >
+
+                        <TextView
+                            android:id="@+id/home_smoke_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="无"
+                            android:textColor="#FFFFFF"
+                            android:textSize="50sp" />
+
+                        <TextView
+                            android:id="@+id/home_smoke_ye"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="有"
+                            android:textColor="#FFFFFF"
+                            android:textSize="50sp"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -137,7 +161,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="5dp"
                         android:layout_marginTop="5dp"
-                        android:text="舒适"
+                        android:text="无"
                         android:textColor="#FFFFFF"
                         android:textSize="40dp" />
 
@@ -158,7 +182,7 @@
                             android:id="@+id/pm_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="23"
+                            android:text="0"
                             android:textColor="#FFFFFF"
                             android:textSize="25dp" />
 
@@ -178,29 +202,43 @@
                     android:layout_marginTop="10dp"
                     android:background="#caf3ff" />
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.4"
                     android:gravity="center" >
 
-                    <ImageView
-                        android:id="@+id/rain_img"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/aa" 
-                        android:visibility="invisible"/>
+                    <LinearLayout
+                        android:id="@+id/home_rain_yes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:visibility="invisible" >
+
+                        <ImageView
+                            android:id="@+id/rain_img"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/aa" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="有雨"
+                            android:textColor="#FFFFFF"
+                            android:textSize="40dp" />
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/rain_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/home_rain_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="无雨"
                         android:textColor="#FFFFFF"
                         android:textSize="40dp" />
-
-                </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
 
             <View
@@ -208,6 +246,149 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="10dp"
                 android:background="#caf3ff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:weightSum="1" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:text="门的状态"
+                            android:textColor="#FFFFFF"
+                            android:textSize="27sp" />
+
+                        <TextView
+                            android:id="@+id/home_door_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:text="关"
+                            android:textColor="#FFFFFF"
+                            android:textSize="45sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="10dp"
+                        android:background="#caf3ff" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:text="空调的状态"
+                            android:textColor="#FFFFFF"
+                            android:textSize="27sp" />
+
+                        <TextView
+                            android:id="@+id/home_air_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:text="关"
+                            android:textColor="#FFFFFF"
+                            android:textSize="45sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#caf3ff" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:weightSum="1" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:text="窗的状态"
+                            android:textColor="#FFFFFF"
+                            android:textSize="27sp" />
+
+                        <TextView
+                            android:id="@+id/home_window_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:text="关"
+                            android:textColor="#FFFFFF"
+                            android:textSize="45sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="10dp"
+                        android:background="#caf3ff" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:text="灯的状态"
+                            android:textColor="#FFFFFF"
+                            android:textSize="27sp" />
+
+                        <TextView
+                            android:id="@+id/home_light_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:text="关"
+                            android:textColor="#FFFFFF"
+                            android:textSize="45sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

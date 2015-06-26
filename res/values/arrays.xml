@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+	<string-array name="slidingMenuImg">
+	    <item>@drawable/home_tubiao</item>
+	    <item>@drawable/chazuo_tubiao2</item>
+	    <item>@drawable/air_tubiao</item>
+	    <item>@drawable/safe_tubiao</item>
+	    <item>@drawable/set_tubiao</item>
+	</string-array>
+    
+	<string-array name="slidingMenuName">
+	    <item>宿舍环境</item>
+	    <item>电器控制</item>
+	    <item>空调控制</item>
+	    <item>安防</item>
+	    <item>模式</item>
+	</string-array>
+	
+</resources>

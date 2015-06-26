@@ -8,6 +8,7 @@ import java.util.Map;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,10 +31,8 @@ public class SlidingMenuFragment extends Fragment {
 	private ChangeFragment listener;
 
 	private String[] data = { "宿舍环境", "电器控制", "空调控制", "安防", "模式" };
-	private int ImgID[] = { R.drawable.home_tubiao, R.drawable.chazuo_tubiao2,
-			R.drawable.air_tubiao, R.drawable.safe_tubiao,
-			R.drawable.set_tubiao };
-
+	private int[] ImgID;
+	
 	public interface ChangeFragment {
 		void change(int key);
 	}
@@ -66,6 +65,11 @@ public class SlidingMenuFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO 自动生成的方法存根
 		super.onActivityCreated(savedInstanceState);
+		TypedArray img = getResources().obtainTypedArray(
+				R.array.slidingMenuImg);
+		ImgID = new int[img.length()];
+		for (int i = 0; i < img.length(); i++)
+			ImgID[i] = img.getResourceId(i, 0);
 		adapter = new SlidingmenuGridViewAdapter(getActivity(), data, ImgID);
 		gridView.setAdapter(adapter);
 

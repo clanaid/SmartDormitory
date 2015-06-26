@@ -26,22 +26,15 @@ public abstract class SerialFragment extends SmartDormitoryFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO 自动生成的方法存根
-		regigisterEventBus();
-		SendCmd("{000000000}");
 		super.onCreate(savedInstanceState);
 	}
 	
-	protected void regigisterEventBus() {
-		EventBus.getDefault().register(this);
-	}
 	
-	@Override
-	public void onDestroy() {
-		// TODO 自动生成的方法存根
-		EventBus.getDefault().unregister(this);
-		super.onDestroy();
-	}
-	
+	/**
+	 * 
+	 * 串口事件接收
+	 * 方法返回类型：void
+	 */
 	public abstract void onEventMainThread(SerialCmd cmd);
 	
 	protected void SendCmd(String cmd) {

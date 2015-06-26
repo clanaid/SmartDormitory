@@ -16,6 +16,10 @@ public final class R {
         public static final int toast_in=0x7f040004;
         public static final int toast_out=0x7f040005;
     }
+    public static final class array {
+        public static final int slidingMenuImg=0x7f060000;
+        public static final int slidingMenuName=0x7f060001;
+    }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -197,14 +201,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int viewBehind=0x7f010002;
     }
+    public static final class color {
+        public static final int mode_text_select=0x7f070001;
+        public static final int mode_text_unselect=0x7f070000;
+        public static final int platooninser_switch_tag_set=0x7f070003;
+        public static final int platooninser_switch_tag_unset=0x7f070002;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
          */
-        public static final int activity_horizontal_margin=0x7f060003;
-        public static final int activity_vertical_margin=0x7f060004;
-        public static final int list_padding=0x7f060001;
-        public static final int shadow_width=0x7f060002;
-        public static final int slidingmenu_offset=0x7f060000;
+        public static final int activity_horizontal_margin=0x7f080003;
+        public static final int activity_vertical_margin=0x7f080004;
+        public static final int list_padding=0x7f080001;
+        public static final int shadow_width=0x7f080002;
+        public static final int slidingmenu_offset=0x7f080000;
     }
     public static final class drawable {
         public static final int aa=0x7f020000;
@@ -234,26 +244,46 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int checkswitch_btn_unpressed=0x7f020018;
         public static final int checkswitch_frame=0x7f020019;
         public static final int checkswitch_mask=0x7f02001a;
-        public static final int gridview_item=0x7f02001b;
-        public static final int gridview_item_color=0x7f02001c;
-        public static final int gridview_item_select_color=0x7f02001d;
-        public static final int home_tubiao=0x7f02001e;
-        public static final int ic_launcher=0x7f02001f;
-        public static final int icon_app=0x7f020020;
-        public static final int my_checkbox=0x7f020021;
-        public static final int power=0x7f020022;
-        public static final int safe_tubiao=0x7f020023;
-        public static final int set_tubiao=0x7f020024;
-        public static final int shadow=0x7f020025;
-        public static final int shape=0x7f020026;
-        public static final int slidingmenu_color=0x7f020027;
-        public static final int switch_background=0x7f020028;
-        public static final int switch_background_shadow=0x7f020029;
-        public static final int switch_unbackground=0x7f02002a;
-        public static final int title=0x7f02002b;
-        public static final int title_color=0x7f02002c;
-        public static final int toast_opendor_background=0x7f02002d;
-        public static final int z=0x7f02002e;
+        public static final int chuanglian=0x7f02001b;
+        public static final int chuanglian2=0x7f02001c;
+        public static final int chuanglian_close=0x7f02001d;
+        public static final int chuanglian_close2=0x7f02001e;
+        public static final int door_close=0x7f02001f;
+        public static final int door_open=0x7f020020;
+        public static final int gridview_item=0x7f020021;
+        public static final int gridview_item_color=0x7f020022;
+        public static final int gridview_item_select_color=0x7f020023;
+        public static final int home_tubiao=0x7f020024;
+        public static final int ic_launcher=0x7f020025;
+        public static final int icon_app=0x7f020026;
+        public static final int ir=0x7f020027;
+        public static final int light_off=0x7f020028;
+        public static final int light_on=0x7f020029;
+        public static final int mode_background_shadow=0x7f02002a;
+        public static final int mode_clock_background=0x7f02002b;
+        public static final int my_checkbox=0x7f02002c;
+        public static final int neative_select=0x7f02002d;
+        public static final int neative_unselect=0x7f02002e;
+        public static final int positive_select=0x7f02002f;
+        public static final int positive_unselect=0x7f020030;
+        public static final int power=0x7f020031;
+        public static final int safe_background_shadow=0x7f020032;
+        public static final int safe_tubiao=0x7f020033;
+        public static final int set_tubiao=0x7f020034;
+        public static final int shadow=0x7f020035;
+        public static final int shape=0x7f020036;
+        public static final int slidingmenu_color=0x7f020037;
+        public static final int switch_background=0x7f020038;
+        public static final int switch_background_shadow=0x7f020039;
+        public static final int switch_unbackground=0x7f02003a;
+        public static final int tag_neative_background=0x7f02003b;
+        public static final int tag_positive_background=0x7f02003c;
+        public static final int title=0x7f02003d;
+        public static final int title_color=0x7f02003e;
+        public static final int toast_opendor_background=0x7f02003f;
+        public static final int window_off=0x7f020040;
+        public static final int window_on=0x7f020041;
+        public static final int z=0x7f020042;
     }
     public static final class id {
         public static final int ContenView_fragment=0x7f050014;
@@ -271,50 +301,92 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int air_temp_down=0x7f050010;
         public static final int air_temp_up=0x7f050011;
         public static final int fullscreen=0x7f050003;
+        public static final int home_air_state=0x7f050023;
+        public static final int home_door_state=0x7f050022;
+        public static final int home_light_state=0x7f050025;
+        public static final int home_rain_no=0x7f050021;
+        public static final int home_rain_yes=0x7f05001f;
+        public static final int home_smoke_no=0x7f05001b;
+        public static final int home_smoke_ye=0x7f05001c;
+        public static final int home_window_state=0x7f050024;
         public static final int hometitle=0x7f050018;
-        public static final int humidity_progress=0x7f050031;
-        public static final int humidity_value=0x7f050032;
+        public static final int humidity_progress=0x7f05005b;
+        public static final int humidity_value=0x7f05005c;
         public static final int item_background=0x7f050015;
         public static final int item_icon=0x7f050016;
         public static final int item_text=0x7f050017;
         public static final int left=0x7f050000;
+        public static final int light_power=0x7f050046;
         public static final int light_type=0x7f050019;
         public static final int light_value=0x7f05001a;
         public static final int margin=0x7f050002;
+        public static final int mode_getUp_text=0x7f050031;
+        public static final int mode_getup_action_closedoor=0x7f050035;
+        public static final int mode_getup_action_closewindow=0x7f050036;
+        public static final int mode_getup_checked=0x7f050032;
+        public static final int mode_getup_clock=0x7f050033;
+        public static final int mode_getup_setClock=0x7f050034;
+        public static final int mode_out_action_closecurtains=0x7f05003c;
+        public static final int mode_out_action_closedoor=0x7f050039;
+        public static final int mode_out_action_closelight=0x7f05003b;
+        public static final int mode_out_action_closewindow=0x7f05003a;
+        public static final int mode_out_checked=0x7f050038;
+        public static final int mode_out_text=0x7f050037;
+        public static final int mode_sleep_action_closecurtains=0x7f05002f;
+        public static final int mode_sleep_action_closedoor=0x7f05002c;
+        public static final int mode_sleep_action_closelight=0x7f05002e;
+        public static final int mode_sleep_action_closeswitch=0x7f050030;
+        public static final int mode_sleep_action_closewindow=0x7f05002d;
+        public static final int mode_sleep_checked=0x7f050028;
+        public static final int mode_sleep_clock=0x7f050029;
+        public static final int mode_sleep_setClock=0x7f05002a;
+        public static final int mode_sleep_text=0x7f050027;
         public static final int none=0x7f050004;
-        public static final int platooninsert_onle_image_1=0x7f050024;
-        public static final int platooninsert_onle_image_2=0x7f050026;
-        public static final int platooninsert_onle_image_3=0x7f050028;
-        public static final int platooninsert_only_1=0x7f050023;
-        public static final int platooninsert_only_2=0x7f050025;
-        public static final int platooninsert_only_3=0x7f050027;
-        public static final int platooninsert_two_1=0x7f05002a;
-        public static final int platooninsert_two_2=0x7f05002c;
-        public static final int platooninsert_two_3=0x7f05002e;
-        public static final int platooninsert_two_image_1=0x7f050029;
-        public static final int platooninsert_two_image_2=0x7f05002b;
-        public static final int platooninsert_two_image_3=0x7f05002d;
-        public static final int pm_type=0x7f05001b;
-        public static final int pm_value=0x7f05001c;
-        public static final int rain_img=0x7f05001d;
-        public static final int rain_value=0x7f05001e;
-        public static final int rfid_user_img=0x7f050036;
-        public static final int rfid_user_name=0x7f050037;
+        public static final int platooninsert_two_1=0x7f05003e;
+        public static final int platooninsert_two_2=0x7f050041;
+        public static final int platooninsert_two_3=0x7f050044;
+        public static final int platooninsert_two_image_1=0x7f05003d;
+        public static final int platooninsert_two_image_2=0x7f050040;
+        public static final int platooninsert_two_image_3=0x7f050043;
+        public static final int platooninsert_two_tag_1=0x7f05003f;
+        public static final int platooninsert_two_tag_2=0x7f050042;
+        public static final int platooninsert_two_tag_3=0x7f050045;
+        public static final int pm_type=0x7f05001d;
+        public static final int pm_value=0x7f05001e;
+        public static final int rain_img=0x7f050020;
+        public static final int rfid_user_img=0x7f050060;
+        public static final int rfid_user_name=0x7f050061;
         public static final int right=0x7f050001;
-        public static final int safetitle=0x7f05001f;
+        public static final int safe_chuanglian_off=0x7f050047;
+        public static final int safe_chuanglian_on=0x7f050048;
+        public static final int safe_chuanlian_swtich=0x7f050049;
+        public static final int safe_door_close_power=0x7f050050;
+        public static final int safe_door_off=0x7f05004d;
+        public static final int safe_door_on=0x7f05004e;
+        public static final int safe_door_open_power=0x7f05004f;
+        public static final int safe_ir_state=0x7f050051;
+        public static final int safe_window_off=0x7f05004a;
+        public static final int safe_window_on=0x7f05004b;
+        public static final int safe_window_switch=0x7f05004c;
+        public static final int safetitle=0x7f050026;
         public static final int selected_view=0x7f050005;
-        public static final int slidingmen_gridview=0x7f050020;
-        public static final int slidingmenu_fragment=0x7f050021;
-        public static final int slidingmenumain=0x7f050022;
-        public static final int temp_progress=0x7f05002f;
-        public static final int temp_value=0x7f050030;
+        public static final int slidingmen_gridview=0x7f050052;
+        public static final int slidingmenu_fragment=0x7f050053;
+        public static final int slidingmenumain=0x7f050054;
+        public static final int tag_edit=0x7f050056;
+        public static final int tag_neative=0x7f050058;
+        public static final int tag_positive=0x7f050057;
+        public static final int tag_title=0x7f050055;
+        public static final int temp_progress=0x7f050059;
+        public static final int temp_value=0x7f05005a;
+        public static final int tempid=0x7f05002b;
         public static final int title=0x7f050006;
-        public static final int title_menu_button=0x7f050033;
-        public static final int title_name=0x7f050034;
-        public static final int title_time=0x7f050035;
+        public static final int title_menu_button=0x7f05005d;
+        public static final int title_name=0x7f05005e;
+        public static final int title_time=0x7f05005f;
     }
     public static final class integer {
-        public static final int num_cols=0x7f070000;
+        public static final int num_cols=0x7f090000;
     }
     public static final class layout {
         public static final int air_control=0x7f030000;
@@ -323,29 +395,33 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int gridview_item=0x7f030003;
         public static final int home_fragment=0x7f030004;
         public static final int mode_fragment=0x7f030005;
-        public static final int safe_fragment=0x7f030006;
-        public static final int slidingmenu_gridview=0x7f030007;
-        public static final int slidingmenu_view=0x7f030008;
-        public static final int slidingmenumain=0x7f030009;
-        public static final int switch_six=0x7f03000a;
-        public static final int temp_humidity_progress=0x7f03000b;
-        public static final int title=0x7f03000c;
-        public static final int toast_open_dor=0x7f03000d;
-        public static final int window=0x7f03000e;
+        public static final int platooninser=0x7f030006;
+        public static final int safe_fragment=0x7f030007;
+        public static final int slidingmenu_gridview=0x7f030008;
+        public static final int slidingmenu_view=0x7f030009;
+        public static final int slidingmenumain=0x7f03000a;
+        public static final int tag_dialog=0x7f03000b;
+        public static final int temp_humidity_progress=0x7f03000c;
+        public static final int title=0x7f03000d;
+        public static final int toast_open_dor=0x7f03000e;
+        public static final int window=0x7f03000f;
     }
     public static final class string {
-        public static final int app_name=0x7f080000;
+        public static final int app_name=0x7f0a0000;
+        public static final int platooninser_switch_tag_unset=0x7f0a0001;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
 
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -359,14 +435,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f090000;
+        public static final int AppBaseTheme=0x7f0b0000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f090001;
-        public static final int AudioFileInfoOverlayText=0x7f090002;
-        public static final int custom_checkbox=0x7f090003;
-        public static final int toast_view=0x7f090004;
+        public static final int AppTheme=0x7f0b0001;
+        public static final int AudioFileInfoOverlayText=0x7f0b0002;
+        public static final int custom_checkbox=0x7f0b0003;
+        public static final int dialog=0x7f0b0005;
+        public static final int toast_view=0x7f0b0004;
     }
     public static final class styleable {
         /** Attributes that can be used with a CircleButton.

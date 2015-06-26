@@ -102,10 +102,10 @@ public class SerialThread extends Observable implements Runnable {
 				serialMsg = new String(buffer);
 				serialMsg = serialMsg.replaceAll(" ", "");
 				serialMsg = serialMsg.trim();
-				if(serialMsgBuffer.length() <= 11){
+				if(serialMsgBuffer.length() <= 5){
 					serialMsgBuffer.append(serialMsg);
 				}
-				if(serialMsgBuffer.length() == 12){
+				if(serialMsgBuffer.length() == 5){
 					cmd = AnalyticalCmd(serialMsgBuffer.toString());
 					HandleCmd(cmd);
 					serialMsgBuffer.delete(0, serialMsgBuffer.length());

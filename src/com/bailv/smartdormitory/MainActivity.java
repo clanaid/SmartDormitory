@@ -48,6 +48,8 @@ public class MainActivity extends Activity implements ChangeFragment,
 
 	private Intent serialIntent;
 	private SerialService serialService;
+	
+	private Intent startSrv;
 
 	private ServiceConnection serviceConnection = new ServiceConnection() {
 
@@ -79,9 +81,6 @@ public class MainActivity extends Activity implements ChangeFragment,
 		// Fragment初始化
 		initFragment();
 
-		// 添加串口观察者
-		// addObserver();
-
 		// slidingmenu动画初始化
 		initAnimation();
 
@@ -99,12 +98,17 @@ public class MainActivity extends Activity implements ChangeFragment,
 		// TODO 自动生成的方法存根
 		serialIntent = new Intent(MainActivity.this, SerialService.class);
 		bindService(serialIntent, serviceConnection, BIND_AUTO_CREATE);
+		
+		startSrv = new Intent(this,
+				DDPushService.class);
+		startService(startSrv);
 	}
 
 	@Override
 	protected void onDestroy() {
 		// TODO 自动生成的方法存根
 		unbindService(serviceConnection);
+		stopService(startSrv);
 		super.onDestroy();
 	}
 
@@ -120,7 +124,13 @@ public class MainActivity extends Activity implements ChangeFragment,
 		platooninsertFragment = new PlatooninsertFragment();
 		safeFragment = new SafeFragment();
 		modeFragment = new ModeFragment();
-		tempFragment = fragment = homeFragment;
+		tempFragment = fragment = null;
+		addFragment(airFragment);
+		addFragment(platooninsertFragment);
+		addFragment(safeFragment);
+		addFragment(modeFragment);
+		addFragment(homeFragment);
+
 	}
 
 	// slidingmenu动画变化率
@@ -160,8 +170,8 @@ public class MainActivity extends Activity implements ChangeFragment,
 
 		// 设置主界面
 		setContentView(R.layout.content_view);
-		getFragmentManager().beginTransaction()
-				.replace(R.id.ContenView_fragment, fragment).commit();
+		/*getFragmentManager().beginTransaction()
+				.add(R.id.ContenView_fragment, fragment).commit();*/
 
 		menu = new SlidingMenu(this);
 
@@ -230,6 +240,18 @@ public class MainActivity extends Activity implements ChangeFragment,
 		}
 		menu.showContent();
 
+	}
+
+	private void addFragment(SmartDormitoryFragment fragment) {
+		FragmentTransaction transaction = getFragmentManager()
+				.beginTransaction();
+		if (this.tempFragment == null) {
+			transaction.add(R.id.ContenView_fragment, fragment).commit();
+		} else {
+			transaction.hide(tempFragment)
+					.add(R.id.ContenView_fragment, fragment).commit();
+		}
+		this.tempFragment = fragment;
 	}
 
 	@Override

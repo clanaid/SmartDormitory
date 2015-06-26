@@ -9,14 +9,447 @@
         android:layout_alignParentTop="true"
         layout="@layout/title" />
 
-    <LinearLayout 
-        android:layout_margin="10dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/safetitle">
-        
-        
-        
+        android:layout_below="@id/safetitle"
+        android:layout_margin="10dp"
+        android:weightSum="6" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2"
+            android:background="@drawable/mode_background_shadow"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:weightSum="6" >
+
+                <TextView
+                    android:id="@+id/mode_sleep_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="center_horizontal"
+                    android:text="睡眠模式"
+                    android:textColor="@color/mode_text_unselect"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/mode_sleep_checked"
+                    style="@style/custom_checkbox"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:gravity="right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="#50caf3ff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:weightSum="7" >
+
+                <TextView
+                    android:id="@+id/mode_sleep_clock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:background="@drawable/mode_clock_background"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="23:30"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/mode_sleep_setClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="设置时间" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="#50caf3ff" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp" >
+
+                <TextView
+                    android:id="@+id/tempid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="触发动作："
+                    android:textColor="#FFFFF0"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closedoor"
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tempid"
+                    android:text="关门" />
+
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closewindow"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tempid"
+                    android:layout_toRightOf="@id/mode_sleep_action_closedoor"
+                    android:text="关窗" />
+                
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closelight"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tempid"
+                    android:layout_toRightOf="@id/mode_sleep_action_closewindow"
+                    android:text="关灯" />
+                
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closecurtains"
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mode_sleep_action_closedoor"
+                    android:text="关窗帘" />
+
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closeswitch"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mode_sleep_action_closedoor"
+                    android:layout_toRightOf="@id/mode_sleep_action_closecurtains"
+                    android:text="关排插" />
+                
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:background="@drawable/mode_background_shadow" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:weightSum="6" >
+
+                <TextView
+                    android:id="@+id/mode_getUp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="center_horizontal"
+                    android:text="起床模式"
+                    android:textColor="@color/mode_text_unselect"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/mode_getup_checked"
+                    style="@style/custom_checkbox"
+                    android:layout_width="40dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:gravity="right" />
+            </LinearLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="#50caf3ff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:weightSum="7" >
+
+                <TextView
+                    android:id="@+id/mode_getup_clock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:background="@drawable/mode_clock_background"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="23:30"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/mode_getup_setClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="设置时间" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="#50caf3ff" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp" >
+
+                <TextView
+                    android:id="@+id/tempid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="触发动作："
+                    android:textColor="#FFFFF0"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/mode_getup_action_closedoor"
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tempid"
+                    android:text="关门" />
+
+                <CheckBox
+                    android:id="@+id/mode_getup_action_closewindow"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tempid"
+                    android:layout_toRightOf="@id/mode_getup_action_closedoor"
+                    android:text="关窗" />
+                
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closelight"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tempid"
+                    android:layout_toRightOf="@id/mode_getup_action_closewindow"
+                    android:text="关灯" />
+                
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closecurtains"
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mode_getup_action_closedoor"
+                    android:text="关窗帘" />
+
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closeswitch"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mode_getup_action_closedoor"
+                    android:layout_toRightOf="@id/mode_sleep_action_closecurtains"
+                    android:text="关排插" />
+                
+            </RelativeLayout>
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:background="@drawable/mode_background_shadow" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:weightSum="6" >
+
+                <TextView
+                    android:id="@+id/mode_out_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="center_horizontal"
+                    android:text="外出模式"
+                    android:textColor="@color/mode_text_unselect"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/mode_out_checked"
+                    style="@style/custom_checkbox"
+                    android:layout_width="40dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:gravity="right" />
+            </LinearLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="#50caf3ff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:weightSum="7" >
+
+                <TextView
+                    android:id="@+id/mode_sleep_clock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:background="@drawable/mode_clock_background"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="23:30"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/mode_sleep_setClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="设置时间" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="#50caf3ff" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp" >
+
+                <TextView
+                    android:id="@+id/tempid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="触发动作："
+                    android:textColor="#FFFFF0"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/mode_out_action_closedoor"
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tempid"
+                    android:text="关门" />
+
+                <CheckBox
+                    android:id="@+id/mode_out_action_closewindow"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tempid"
+                    android:layout_toRightOf="@id/mode_out_action_closedoor"
+                    android:text="关窗" />
+                
+                <CheckBox
+                    android:id="@+id/mode_out_action_closelight"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tempid"
+                    android:layout_toRightOf="@id/mode_out_action_closewindow"
+                    android:text="关灯" />
+                
+                <CheckBox
+                    android:id="@+id/mode_out_action_closecurtains"
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mode_out_action_closedoor"
+                    android:text="关窗帘" />
+
+                <CheckBox
+                    android:id="@+id/mode_sleep_action_closeswitch"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mode_out_action_closedoor"
+                    android:layout_toRightOf="@id/mode_out_action_closecurtains"
+                    android:text="关排插" />
+                
+            </RelativeLayout>
+            
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

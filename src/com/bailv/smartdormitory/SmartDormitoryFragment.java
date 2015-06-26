@@ -2,9 +2,12 @@ package com.bailv.smartdormitory;
 
 import java.text.SimpleDateFormat;
 
+import com.bailv.util.EventsPost;
 import com.bailv.util.RealTime;
 
+import de.greenrobot.event.EventBus;
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -12,9 +15,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
-public class SmartDormitoryFragment extends Fragment {
+public abstract class SmartDormitoryFragment extends Fragment {
 
 	public interface ShowMenuListener {
 		public void show();
@@ -24,6 +28,9 @@ public class SmartDormitoryFragment extends Fragment {
 	private TextView titlename;
 	private Button titleMenuButton;
 	private ShowMenuListener showMenuListener;
+
+	private SharedPreferences myShareActionProvider;
+	private SharedPreferences.Editor myshareEditor;
 
 	protected Handler handler = new Handler() {
 
@@ -86,14 +93,36 @@ public class SmartDormitoryFragment extends Fragment {
 		// TODO 自动生成的方法存根
 		super.onCreate(savedInstanceState);
 		RealTime.getRealTime().setHandler(handler);
+		regigisterEventBus();
+		myShareActionProvider = getActivity().getSharedPreferences(
+				"sdormitoryConfig", getActivity().MODE_PRIVATE);
+		myshareEditor = myShareActionProvider.edit();
 	}
 	
+	protected void regigisterEventBus() {
+		EventBus.getDefault().register(this);
+	}
+
 	@Override
 	public void onHiddenChanged(boolean hidden) {
 		// TODO 自动生成的方法存根
 		super.onHiddenChanged(hidden);
-		if(!hidden)
+		if (!hidden)
 			RealTime.getRealTime().setHandler(handler);
 	}
+	
+	@Override
+	public void onDestroy() {
+		// TODO 自动生成的方法存根
+		EventBus.getDefault().unregister(this);
+		super.onDestroy();
+	}
+	
+	/**
+	 * 
+	 * 接收push、定时器等命令（除了串口）
+	 * 方法返回类型：void
+	 */
+	abstract public void onEventMainThread(EventsPost eventcmd);
 
 }

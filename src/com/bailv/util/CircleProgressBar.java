@@ -15,13 +15,15 @@ import android.widget.TextView;
 public class CircleProgressBar extends View {
 
 	private int maxProgress = 100;
-	private int progress = 15;
+	private int progress = 0;
 	private int progressStrokeWidth = 16;
 	private int marxArcStorkeWidth = 24;
 	
 	private TextView target;
 	
 	private RotateAnimation animation;
+	
+	private String fuhao;
 	
 	// 画圆所在的距形区域
 	RectF oval;
@@ -30,6 +32,7 @@ public class CircleProgressBar extends View {
 	public CircleProgressBar(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
+		fuhao = "%";
 		oval = new RectF();
 		paint = new Paint();
 	}
@@ -64,7 +67,6 @@ public class CircleProgressBar extends View {
 		//画出数据
 		paint.setStrokeWidth(1);
 		String value = progress + "";
-		String fuhao = "%";
 		int textHeight = height / 4;
 		paint.setFakeBoldText(true);
 		paint.setTextSize(textHeight);
@@ -90,26 +92,15 @@ public class CircleProgressBar extends View {
 		this.maxProgress = maxProgress;
 	}
 	
+	public void setFuhao(String fuhao){
+		this.fuhao = fuhao;
+		this.invalidate();
+	}
+	
 	public void setTextView(TextView tempView){
 		target = tempView;
 	}
 
-	/**
-	 * 设置进度
-	 * 
-	 * @param progress
-	 *            进度百分比
-	 * @param view
-	 *            标识进度的节点视图
-	 */
-//	public void setProgress(int progress, View view) {
-//		this.progress = progress;
-//		view.setAnimation(pointRotationAnima(0,
-//				(int) (((float) 360 / maxProgress) * progress)));
-//		this.invalidate();
-//	}
-	
-	
 	
 	public int getProgress() {
 		return progress;
@@ -118,17 +109,6 @@ public class CircleProgressBar extends View {
 	public void setProgress(int progress) {
 		this.progress = progress;
 		target.setText(progress+"");
-		this.invalidate();
-	}
-
-	/**
-	 * 设置进度,不带标识
-	 * 
-	 * @param progress
-	 *            进度百分比
-	 */
-	public void setProgressWithNoPoint(int progress){
-		this.progress = progress;
 		this.invalidate();
 	}
 

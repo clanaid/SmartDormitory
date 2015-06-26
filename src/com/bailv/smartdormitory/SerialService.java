@@ -45,14 +45,14 @@ public class SerialService extends Service implements Observer {
 		binder = new LocalBinder();
 
 		serialThread = SerialThread.getSerialThread(SerialThread.devName[0],
-				115200, 8, 1);
+				38400, 8, 1);
 		thread = new Thread(serialThread);
 		Log.d("Service", "opening...");
 		if (serialThread != null) {
 			serialThread.addObserver(this);
 			fd = serialThread.getfd();
 			thread.start();
-			SerialSend("{000000000}");
+			//SerialSend("{000000000}");
 		}else {
 			ToastShow.MakeText(getApplicationContext(), "串口启动失败", true).show();
 		}
@@ -94,7 +94,7 @@ public class SerialService extends Service implements Observer {
 		// TODO 自动生成的方法存根
 		String serialCmd = null;
 		serialCmd = (String) data;
-		Log.d("SerialGet", serialCmd);
+		//Log.d("SerialGet", serialCmd);
 		HandlerCmd(serialCmd);
 	}
 
